@@ -2,19 +2,28 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import VueAxios from '@/plugins/axios'
-// import axios from "vue-axios";
+import vuetify from './plugins/vuetify';
+import * as VueGoogleMaps from 'vue2-google-maps'
 
-// export adefault axios.create({
-//   baseURL: "http://localhost:3000"
-// })
+console.clear()
+
+// gooogle mapを使う設定
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyAZF4-iW_dV8rvIW2pg3vcqTUU99XHarYE',
+    libraries: 'places',
+    region: 'JP',
+    language: 'ja'
+  }
+})
 
 Vue.config.productionTip = false
-
-// Vue.use(VueAxios, axios)
 
 new Vue({
   router,
   store,
+  vuetify,
+  // axios,
   render: h => h(App)
 }).$mount('#app')
+
