@@ -4,8 +4,9 @@ import Router from 'vue-router'
 import Index from '@/views/session_index'
 import Login from '@/views/login'
 import Signup from '@/views/signup'
-import BookIndex from '@/components/book_for_index'
-import User from '../views/user'
+import BookIndex from '@/views/books_index'
+// import User from '../views/user'
+import userCard from '../components/userCard'
 
 // import store from "@/store/index.js"
 
@@ -31,9 +32,13 @@ var router = new Router({
           path: '/book_index',
           component: BookIndex
         },
+        // {
+        //   path: '/user/:id',
+        //   component: User
+        // },
         {
-          path: '/user/:id',
-          component: User
+          path: '/userCard',
+          component: userCard
         }
 
     ]

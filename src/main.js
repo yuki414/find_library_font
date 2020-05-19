@@ -6,11 +6,12 @@ import vuetify from './plugins/vuetify';
 import * as VueGoogleMaps from 'vue2-google-maps'
 
 console.clear()
+console.log(process.env.VUE_APP_GOOGLE_API_KEY)
 
 // gooogle mapを使う設定
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyAZF4-iW_dV8rvIW2pg3vcqTUU99XHarYE',
+    key: process.env.VUE_APP_GOOGLE_API_KEY,
     libraries: 'places',
     region: 'JP',
     language: 'ja'
