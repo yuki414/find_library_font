@@ -30,14 +30,14 @@ export default {
     methods: {
         signUp () {
             console.log('Sign-up!')
-            axios.post("http://localhost:3000/api/auth",
+            axios.post("auth",
             {
                 "email": this.email,
                 "password": this.password
             })
             .then(
                 (body,headers) => console.log(body, headers))
-            axios.post("http://localhost:3000/api/user_additions/",
+            axios.post("user_additions/",
                 {"userAddition": {
                     "id": this.id,
                     "uid": this.uid,

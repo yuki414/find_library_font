@@ -2,6 +2,7 @@
 
 const auth = {
     state: {
+        id: "",
         access_token: "",
         client: "",
         uid: "",
@@ -9,21 +10,26 @@ const auth = {
     },
     mutations: {
         create: (state, data) => {
-            state.access_token = data.access_token
-            state.client = data.client
-            state.uid = data.uid
-            state.expire = data.expire
+            state.id = data.data.data.id
+            state.access_token = data.headers["access-token"]
+            state.client = data.headers.client
+            state.uid = data.headers.uid
+            state.expire = data.headers.expire
         },
-        destroy: (state)=>{
-            state.token = "",
-            state.client = "",
-            state.uid = "",
-            state.expire=0
+        destroy: (state) => {
+            state.id = ""
+            state.token = ""
+            state.client = ""
+            state.uid = ""
+            state.expire = 0
         }
     },
     actions: {
         create({ commit }, data) {
             commit("create", data)
+        },
+        destroy({ commit }) {
+            commit("destroy")
         }
     }
 }
